@@ -1,28 +1,72 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TodoHeaderVue></TodoHeaderVue>
+    <TodoInputVue @addTodoItem="addOneItem"></TodoInputVue>
+    <TodoListVue :todoItems="todoItems" 
+      @removeItem="removeOneItem"
+      @toggleItem="toggleOneItem"
+    ></TodoListVue>
+    <TodoFooterVue @clearAll="clearAllItem"></TodoFooterVue>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+/* eslint-disable */
+import TodoHeaderVue from './components/TodoHeader.vue';
+import TodoInputVue from './components/TodoInput.vue';
+import TodoListVue from './components/TodoList.vue';
+import TodoFooterVue from './components/TodoFooter.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data(){
+    return {
+      todoItems:[]
+    }
+  },
+  methods:{
+    addOneItem(newTodoItem){ // addOneItem : function(){}
+      const obj = {completed: false, item: newTodoItem};
+      localStorage.setItem(newTodoItem, JSON.stringify(obj));
+      this.todoItems.push(obj);
+    },
+    removeOneItem(item, idx){
+      localStorage.removeItem(item)
+      this.todoItems.splice(idx,1);
+    },
+    toggleOneItem(todoItem, idx){
+      // todoItem.completed = !todoItem.completed;
+      this.todoItems[idx].completed = !this.todoItems[idx].completed;
+      localStorage.removeItem(todoItem.item);
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
+    },
+    clearAllItem(){
+      localStorage.clear();
+      this.todoItems = [];
+    }
+  },
+ components: {
+  TodoFooterVue,
+  TodoHeaderVue,
+  TodoInputVue,
+  TodoListVue
+ }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: #F6F6F6;
 }
+input {
+  border-style: groove;
+  width: 200px;
+}
+button {
+  border-style: groove;
+}
+.shadow {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+}
+
 </style>
