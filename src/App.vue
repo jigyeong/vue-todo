@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TodoHeaderVue></TodoHeaderVue>
-    <TodoInputVue @addTodoItem="addOneItem"></TodoInputVue>
+    <TodoInputVue></TodoInputVue>
     <TodoListVue :todoItems="todoItems" 
       @removeItem="removeOneItem"
       @toggleItem="toggleOneItem"
@@ -24,11 +24,11 @@ export default {
     }
   },
   methods:{
-    addOneItem(newTodoItem){ // addOneItem : function(){}
-      const obj = {completed: false, item: newTodoItem};
-      localStorage.setItem(newTodoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
+    // addOneItem(newTodoItem){ // addOneItem : function(){}
+    //   const obj = {completed: false, item: newTodoItem};
+    //   localStorage.setItem(newTodoItem, JSON.stringify(obj));
+    //   this.todoItems.push(obj);
+    // },
     removeOneItem(item, idx){
       localStorage.removeItem(item)
       this.todoItems.splice(idx,1);

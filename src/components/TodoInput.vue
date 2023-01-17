@@ -41,7 +41,8 @@ export default {
     addTodo : function(){
       if(this.newTodoItem !== ''){
         // this.$emit('상위 컴포넌트로 올려줄 이벤트이름', 인자1, 인자2...)
-        this.$emit('addTodoItem', this.newTodoItem)
+        // this.$emit('addTodoItem', this.newTodoItem)
+        this.$store.commit('addOneItem', this.newTodoItem);
         this.clearInput();
       }
       else {

@@ -20,7 +20,6 @@ library.add(faTrashCan);
 library.add(faCheck);
 
 export default {
-  props:['todoItems'],
   components:{
     FontAwesomeIcon
   },

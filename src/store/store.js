@@ -19,5 +19,12 @@ const storage = {
 export const store = new Vuex.Store({
     state: {
         todoItems: storage.fetch()
+    },
+    mutations: {
+        addOneItem(state, newTodoItem){ 
+            const obj = {completed: false, item: newTodoItem};
+            localStorage.setItem(newTodoItem, JSON.stringify(obj));
+            state.todoItems.push(obj);
+        },
     }
 })
