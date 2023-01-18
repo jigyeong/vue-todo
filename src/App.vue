@@ -3,10 +3,8 @@
     <TodoHeaderVue></TodoHeaderVue>
     <TodoInputVue></TodoInputVue>
     <TodoListVue :todoItems="todoItems" 
-      @removeItem="removeOneItem"
-      @toggleItem="toggleOneItem"
     ></TodoListVue>
-    <TodoFooterVue @clearAll="clearAllItem"></TodoFooterVue>
+    <TodoFooterVue></TodoFooterVue>
   </div>
 </template>
 
@@ -29,20 +27,20 @@ export default {
     //   localStorage.setItem(newTodoItem, JSON.stringify(obj));
     //   this.todoItems.push(obj);
     // },
-    removeOneItem(item, idx){
-      localStorage.removeItem(item)
-      this.todoItems.splice(idx,1);
-    },
-    toggleOneItem(todoItem, idx){
-      // todoItem.completed = !todoItem.completed;
-      this.todoItems[idx].completed = !this.todoItems[idx].completed;
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
-    },
-    clearAllItem(){
-      localStorage.clear();
-      this.todoItems = [];
-    }
+    // removeOneItem(item, idx){
+    //   localStorage.removeItem(item)
+    //   this.todoItems.splice(idx,1);
+    // },
+    // toggleOneItem(todoItem, idx){
+    //   // todoItem.completed = !todoItem.completed;
+    //   this.todoItems[idx].completed = !this.todoItems[idx].completed;
+    //   localStorage.removeItem(todoItem.item);
+    //   localStorage.setItem(todoItem.item, JSON.stringify(todoItem))
+    // },
+    // clearAllItem(){
+    //   localStorage.clear();
+    //   this.todoItems = [];
+    // }
   },
  components: {
   TodoFooterVue,

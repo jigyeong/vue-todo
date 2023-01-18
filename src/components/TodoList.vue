@@ -25,10 +25,13 @@ export default {
   },
   methods:{
     removeTodo: function(item, idx){
-      this.$emit('removeItem', item, idx);
+      // this.$emit('removeItem', item, idx);
+      this.$store.commit('removeItem', {item, idx});
     },
     toggleComplete: function(todoItem, idx){
-      this.$emit('toggleItem', todoItem, idx)
+      // this.$emit('toggleItem', todoItem, idx)
+      console.log(todoItem, idx)
+      this.$store.commit('toggleItem', {todoItem, idx})
     }
   },
 }
