@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, idx) in this.$store.state.todoItems" :key="idx" class="shadow">
+      <li v-for="(todoItem, idx) in this.storedTodoItems" :key="idx" class="shadow">
         <font-awesome-icon icon="fa-solid fa-check" class="checkBtn" :class="{checkBtnCompleted : todoItem.completed}" @click="toggleComplete(todoItem,idx)"/>
         <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
         <span class="removeBtn" @click="removeTodo(todoItem.item, idx)">
@@ -16,6 +16,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { mapGetters } from 'vuex';
 library.add(faTrashCan);
 library.add(faCheck);
 
@@ -34,6 +35,12 @@ export default {
       this.$store.commit('toggleItem', {todoItem, idx})
     }
   },
+  computed: {
+    // todoItems(){
+    //   return this.$store.getters.storedTodoItems;
+    // }
+    ...mapGetters(['storedTodoItems'])
+  }
 }
 </script>
 
