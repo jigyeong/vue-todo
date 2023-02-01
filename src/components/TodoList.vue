@@ -2,9 +2,9 @@
   <div>
     <transition-group name="list" tag="ul">
       <li v-for="(todoItem, idx) in this.storedTodoItems" :key="idx" class="shadow">
-        <font-awesome-icon icon="fa-solid fa-check" class="checkBtn" :class="{checkBtnCompleted : todoItem.completed}" @click="toggleComplete(todoItem,idx)"/>
+        <font-awesome-icon icon="fa-solid fa-check" class="checkBtn" :class="{checkBtnCompleted : todoItem.completed}" @click="toggleComplete({todoItem,idx})"/>
         <span v-bind:class="{textCompleted: todoItem.completed}">{{todoItem.item}}</span>
-        <span class="removeBtn" @click="removeTodo(todoItem.item, idx)">
+        <span class="removeBtn" @click="removeTodo({todoItem, idx})">
           <font-awesome-icon icon="fa-solid fa-trash-can" />
         </span>
       </li>
@@ -16,7 +16,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrashCan, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 library.add(faTrashCan);
 library.add(faCheck);
 
@@ -25,15 +25,19 @@ export default {
     FontAwesomeIcon
   },
   methods:{
-    removeTodo: function(item, idx){
-      // this.$emit('removeItem', item, idx);
-      this.$store.commit('removeItem', {item, idx});
-    },
-    toggleComplete: function(todoItem, idx){
-      // this.$emit('toggleItem', todoItem, idx)
-      console.log(todoItem, idx)
-      this.$store.commit('toggleItem', {todoItem, idx})
-    }
+    ...mapMutations({
+      removeTodo : 'removeItem' // 호출될 Mutation , removeItem({todoItem, idx})
+      , toggleComplete : 'toggleItem'
+    }),
+    // removeTodo: function(item, idx){
+    //   // this.$emit('removeItem', item, idx);
+    //   this.$store.commit('removeItem', {item, idx});
+    // },
+    // toggleComplete: function(todoItem, idx){
+    //   // this.$emit('toggleItem', todoItem, idx)
+    //   console.log(todoItem, idx)
+    //   this.$store.commit('toggleItem', {todoItem, idx})
+    // }
   },
   computed: {
     // todoItems(){

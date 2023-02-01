@@ -32,7 +32,7 @@ export const store = new Vuex.Store({
             state.todoItems.push(obj);
         },
         removeItem(state, payload){
-            localStorage.removeItem(payload.item);
+            localStorage.removeItem(payload.todoItem.item);
             state.todoItems.splice(payload.idx,1);
         },
         toggleItem(state, payload){
