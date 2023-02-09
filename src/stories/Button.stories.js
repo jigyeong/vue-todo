@@ -44,3 +44,15 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+export const Test = Template.bind({});
+Test.args = {
+  label: 'Test',
+  primary: true,
+  size: 'medium',
+  backgroundColor: 'pink',
+  test:'test'
+}
+Test.story = {
+  decorators: [()=> `<section style="backgroundColor:yellow"><story/></section>`]
+}
