@@ -1,46 +1,30 @@
 <template>
   <div id="app">
-    <TodoHeaderVue></TodoHeaderVue>
-    <TodoInputVue></TodoInputVue>
-    <TodoListVue></TodoListVue>
-    <TodoFooterVue></TodoFooterVue>
-    <StorybookTest></StorybookTest>
+    Hello
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-import TodoHeaderVue from './components/TodoHeader.vue';
-import TodoInputVue from './components/TodoInput.vue';
-import TodoListVue from './components/TodoList.vue';
-import TodoFooterVue from './components/TodoFooter.vue';
-import StorybookTest from './components/StorybookTest.vue';
 
 export default {
- components: {
-  TodoFooterVue,
-  TodoHeaderVue,
-  TodoInputVue,
-  TodoListVue,
-  StorybookTest
- }
+  name: 'App',
+  components: {
+  },
+  methods:{
+    fetchData(){
+      console.log('ddd')
+    }
+  }
 }
 </script>
 
 <style>
-/* StorybookTestbody {
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #F6F6F6;
-} */
-input {
-  border-style: groove;
-  width: 200px;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-button {
-  border-style: groove;
-}
-.shadow {
-  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
-}
-
 </style>
