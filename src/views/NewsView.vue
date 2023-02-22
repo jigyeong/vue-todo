@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ this.$store.state.news }}
     <div v-for="user in users" :key="user.key">
         {{ user.title }}
     </div>
@@ -19,6 +20,7 @@ export default {
         console.log('created')
         fetchNewsList()
         .then(res => {
+            this.$store.state.news = res.data;
             this.users = res.data
         })
         .catch(err => console.log(err))
