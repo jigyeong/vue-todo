@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div v-for="ask in fetchedAsk" :key="ask.key">
+    <p v-for="ask in fetchedAsk" :key="ask.key">
         Q. {{ ask.title }}
-    </div>
+        <small>
+          {{ ask.user }}
+        </small>
+    </p>
   </div>
 </template>
 
