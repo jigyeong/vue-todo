@@ -13,3 +13,6 @@ export function fetchAskList() {
 export function fetchJobsList() {
     return axios.get(`${config.baseUrl}/jobs/1.json`);
 }
+export function fetchUserInfo(id) {
+    return axios.get(`${config.baseUrl}/user/${id}.json`);
+}
