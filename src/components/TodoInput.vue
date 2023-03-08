@@ -2,7 +2,7 @@
   <div class="inputBox shadow">
     <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo"/>
     <span class="addContainer" v-on:click="addTodo">
-      <font-awesome-icon icon="fa-solid fa-plus" class="addBtn"/>
+      <font-awesome-icon icon="fa-solid fa-plus" class="addBtn" style="margin-left: 15px;"/>
     </span>
     <MyModal v-if="showModal" @close="showModal = false">
       <h3 slot="header">

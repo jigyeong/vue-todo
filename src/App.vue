@@ -4,7 +4,6 @@
     <TodoInputVue></TodoInputVue>
     <TodoListVue></TodoListVue>
     <TodoFooterVue></TodoFooterVue>
-    <StorybookTest></StorybookTest>
   </div>
 </template>
 
@@ -14,24 +13,18 @@ import TodoHeaderVue from './components/TodoHeader.vue';
 import TodoInputVue from './components/TodoInput.vue';
 import TodoListVue from './components/TodoList.vue';
 import TodoFooterVue from './components/TodoFooter.vue';
-import StorybookTest from './components/StorybookTest.vue';
 
 export default {
  components: {
   TodoFooterVue,
   TodoHeaderVue,
   TodoInputVue,
-  TodoListVue,
-  StorybookTest
+  TodoListVue
  }
 }
 </script>
 
 <style>
-/* StorybookTestbody {
-  text-align: center;
-  background-color: #F6F6F6;
-} */
 input {
   border-style: groove;
   width: 200px;

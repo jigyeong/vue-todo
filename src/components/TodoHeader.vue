@@ -15,5 +15,6 @@ export default {
     color: gray;
     font-weight: 900;
     margin : 2.5rem 0 1.5rem;
+    text-align: center;
   }
 </style>
